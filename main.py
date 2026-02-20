@@ -11,6 +11,6 @@ class ChatRequest(BaseModel):
 
 @app.post("/chat")
 def chat(request: ChatRequest):
-    reply = get_response(request.user_id, request.message)
+    response = chat_with_bot(request.user_id, request.message)
+    return {"response": response}
 
-    return {"response": reply}
